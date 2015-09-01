@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="GBK"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
     http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 	
-	<!-- Springå’Œmybatisçš„é…ç½®æ–‡ä»¶ -->
+	<!-- SpringºÍmybatisµÄÅäÖÃÎÄ¼þ -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:conf/spring-mybatis.xml</param-value>
 	</context-param>
-	<!-- ç¼–ç è¿‡æ»¤å™¨ -->
+	<!-- ±àÂë¹ýÂËÆ÷ -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -23,11 +23,11 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<!-- Springç›‘å¬å™¨ -->
+	<!-- Spring¼àÌýÆ÷ -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!-- é˜²æ­¢Springå†…å­˜æº¢å‡ºç›‘å¬å™¨ -->
+	<!-- ·ÀÖ¹SpringÄÚ´æÒç³ö¼àÌýÆ÷ -->
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
@@ -45,7 +45,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SpringMVC</servlet-name>
-		<!-- æ­¤å¤„å¯ä»¥å¯ä»¥é…ç½®æˆ*.doï¼Œå¯¹åº”strutsçš„åŽç¼€ä¹ æƒ¯ -->
+		<!-- ´Ë´¦¿ÉÒÔ¿ÉÒÔÅäÖÃ³É*.do£¬¶ÔÓ¦strutsµÄºó×ºÏ°¹ß -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>

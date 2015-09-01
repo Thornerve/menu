@@ -65,21 +65,10 @@
 		<property name="configuration" ref="freemarkerConfiguration" />
 	</bean>
 	
-	<bean id="remoteTemplateLoader" class="com.morlin.thor.menu.web.freemarker.RemoteTemplateLoader">
-		<constructor-arg name="remotePath"
-			value="${component.httpinclude.address}" />
-		<property name="paths" value="${component.httprequest.ftl}" />
-	</bean>
-	
-	<util:list id="preTemplateLoaders" list-class="java.util.ArrayList" value-type="com.morlin.thor.menu.web.freemarker.RemoteTemplateLoader">
-		<ref bean="remoteTemplateLoader" />
-	</util:list>
-	
 	<bean id="freemarkerConfiguration"
 		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
 		<description>Using the Config directly so we can use it outside the	web tier</description>
 		<!-- 模板加载路径 -->
-		<property name="postTemplateLoaders" ref="preTemplateLoaders" />
 		<property name="templateLoaderPaths">
 			<list>
 				<value>/WEB-INF/views</value>
