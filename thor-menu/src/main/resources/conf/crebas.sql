@@ -38,11 +38,11 @@ create table t_attr_group
    creator_id           int,
    create_time          timestamp,
    update_time          timestamp,
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
    primary key (group_id)
 );
 
-alter table t_attr_group comment 'ÊôĞÔ×é';
+alter table t_attr_group comment 'å±æ€§ç»„';
 
 /*==============================================================*/
 /* Table: t_attr_value                                          */
@@ -56,11 +56,11 @@ create table t_attr_value
    creator              int,
    create_time          timestamp,
    update_time          timestamp,
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
    primary key (attr_value_id)
 );
 
-alter table t_attr_value comment 'ÊôĞÔÖµ±í';
+alter table t_attr_value comment 'å±æ€§å€¼è¡¨';
 
 /*==============================================================*/
 /* Table: t_attribute                                           */
@@ -71,18 +71,18 @@ create table t_attribute
    group_id             int,
    name                 varchar(50),
    alias                varchar(50),
-   code                 varchar(50) comment 'Ê×Ò³±àÂë',
-   is_show              smallint comment '1£¬ÊÇ  2£¬·ñ',
-   show_type            smallint comment '1. ÏÂÀ­¿ò  2. ¶àÑ¡Ïî  3.ÊäÈëÏî',
+   code                 varchar(50) comment 'é¦–é¡µç¼–ç ',
+   is_show              smallint comment '1ï¼Œæ˜¯  2ï¼Œå¦',
+   show_type            smallint comment '1. ä¸‹æ‹‰æ¡†  2. å¤šé€‰é¡¹  3.è¾“å…¥é¡¹',
    sort_num             int,
    creator              int,
    create_time          timestamp,
    update_time          timestamp,
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
    primary key (attr_id)
 );
 
-alter table t_attribute comment 'ÊôĞÔ±í';
+alter table t_attribute comment 'å±æ€§è¡¨';
 
 /*==============================================================*/
 /* Table: t_category                                            */
@@ -90,34 +90,34 @@ alter table t_attribute comment 'ÊôĞÔ±í';
 create table t_category
 (
    category_id          int not null,
-   piid                 int comment '¶¥¼¶ÀàÄ¿Îª-1',
-   group_id             int comment '¹ØÁªÊôĞÔ×éid',
-   category_level       smallint comment '½ÚµãËùÔÚ²ã¼¶',
-   category_id_path     varchar(200) comment '½ÚµãËùÔÚid´®Â·¾¶',
+   piid                 int comment 'é¡¶çº§ç±»ç›®ä¸º-1',
+   group_id             int comment 'å…³è”å±æ€§ç»„id',
+   category_level       smallint comment 'èŠ‚ç‚¹æ‰€åœ¨å±‚çº§',
+   category_id_path     varchar(200) comment 'èŠ‚ç‚¹æ‰€åœ¨idä¸²è·¯å¾„',
    name                 varchar(50),
-   alias                varchar(50) comment 'Ç°Ì¨¶ÔÓ¦µÄÀàÄ¿Ãû£¨Ò»ÆÚ£©',
+   alias                varchar(50) comment 'å‰å°å¯¹åº”çš„ç±»ç›®åï¼ˆä¸€æœŸï¼‰',
    first_char           varchar(10),
-   is_show              smallint comment '1£¬ÊÇ  2£¬·ñ',
-   type_code            varchar(10) comment 'ÀàÄ¿·ÖÀà´úÂë',
+   is_show              smallint comment '1ï¼Œæ˜¯  2ï¼Œå¦',
+   type_code            varchar(10) comment 'ç±»ç›®åˆ†ç±»ä»£ç ',
    sort_num             int,
    creator_id           int,
    create_time          timestamp,
    update_time          timestamp,
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
    primary key (category_id)
 );
 
-alter table t_category comment 'ÀàÄ¿±í';
+alter table t_category comment 'ç±»ç›®è¡¨';
 
 /*==============================================================*/
 /* Table: t_market_solution                                     */
 /*==============================================================*/
 create table t_market_solution
 (
-   detail_id            int not null comment 'ÓªÏúÃ÷Ï¸id',
+   detail_id            int not null comment 'è¥é”€æ˜ç»†id',
    solution_id          int not null,
    solution_name        varchar(100) not null,
-   market_type          tinyint(4) not null comment '1£ºÊµÎï£¬2£ºÓÍ¿¨£¬3£º±£ÑøÈ¯£¬4£ºÆäËû',
+   market_type          tinyint(4) not null comment '1ï¼šå®ç‰©ï¼Œ2ï¼šæ²¹å¡ï¼Œ3ï¼šä¿å…»åˆ¸ï¼Œ4ï¼šå…¶ä»–',
    gift_name            varchar(20),
    gift_desc            varchar(100),
    gift_value           decimal(10,2),
@@ -125,7 +125,7 @@ create table t_market_solution
    primary key (detail_id)
 );
 
-alter table t_market_solution comment 'ÓªÏú·½°¸±í';
+alter table t_market_solution comment 'è¥é”€æ–¹æ¡ˆè¡¨';
 
 /*==============================================================*/
 /* Table: t_solution                                            */
@@ -134,8 +134,8 @@ create table t_solution
 (
    solution_id          int not null,
    solution_name        varchar(100) not null,
-   solution_type        tinyint(4) not null comment '1£ººì°ü£¬2£ºÕÛ¿Û£¬3£ºÂò¾ÍËÍ',
-   publisher            int not null comment '¾­ÏúÉÌid',
+   solution_type        tinyint(4) not null comment '1ï¼šçº¢åŒ…ï¼Œ2ï¼šæŠ˜æ‰£ï¼Œ3ï¼šä¹°å°±é€',
+   publisher            int not null comment 'ç»é”€å•†id',
    store_id             int,
    province_id          int,
    city_id              int,
@@ -143,11 +143,11 @@ create table t_solution
    operator_name        varchar(100),
    operator_time        timestamp,
    create_time          timestamp,
-   solution_status      tinyint not null comment '1£ºÓĞĞ§£¬2£ºÎŞĞ§',
+   solution_status      tinyint not null comment '1ï¼šæœ‰æ•ˆï¼Œ2ï¼šæ— æ•ˆ',
    primary key (solution_id)
 );
 
-alter table t_solution comment '·½°¸»ù´¡±í';
+alter table t_solution comment 'æ–¹æ¡ˆåŸºç¡€è¡¨';
 
 /*==============================================================*/
 /* Table: t_spu                                                 */
@@ -155,10 +155,10 @@ alter table t_solution comment '·½°¸»ù´¡±í';
 create table t_spu
 (
    spu_id               int not null,
-   title                varchar(100) comment 'spuÃû³Æ',
-   sub_title            varchar(200) comment 'ÉÌÆ·ÃèÊöµÈ',
-   cover_img_url        varchar(200) comment 'ÉÌÆ·Í¼Æ¬Â·¾¶',
-   spu_status           smallint comment 'Á÷×ª×´Ì¬£¨1.ĞÂ½¨ 2. ´ıÉóºË 3.ÉóºËÍ¨¹ı 4,ÉóºË²»Í¨¹ı 5.ÒÑ·¢²¼¸ø¾­ÏúÉÌ 6.½øĞĞÖĞ 7.ÒÑÏÂÏß 8. ÒÑ³·Ïú£©',
+   title                varchar(100) comment 'spuåç§°',
+   sub_title            varchar(200) comment 'å•†å“æè¿°ç­‰',
+   cover_img_url        varchar(200) comment 'å•†å“å›¾ç‰‡è·¯å¾„',
+   spu_status           smallint comment 'æµè½¬çŠ¶æ€ï¼ˆ1.æ–°å»º 2. å¾…å®¡æ ¸ 3.å®¡æ ¸é€šè¿‡ 4,å®¡æ ¸ä¸é€šè¿‡ 5.å·²å‘å¸ƒç»™ç»é”€å•† 6.è¿›è¡Œä¸­ 7.å·²ä¸‹çº¿ 8. å·²æ’¤é”€ï¼‰',
    sponsor              int,
    category_id          int,
    stock_id             int,
@@ -167,22 +167,22 @@ create table t_spu
    out_price            decimal,
    in_price             decimal,
    market_solution_id   int,
-   tag                  varchar(200) comment 'ÓªÏú±êÇ©',
+   tag                  varchar(200) comment 'è¥é”€æ ‡ç­¾',
    hot_zone             smallint,
    sort_num             int,
-   total_member         int comment '¹Ø×¢ÈËÊı',
-   total_member_show    int comment 'Ä¬ÈÏ¹Ø×¢ÈËÊı',
-   perchase_num         char(10) comment 'Ä¬ÈÏÏúÊÛÊı',
-   store_id             int comment '¾­ÏúÉÌÃÅµêid',
+   total_member         int comment 'å…³æ³¨äººæ•°',
+   total_member_show    int comment 'é»˜è®¤å…³æ³¨äººæ•°',
+   perchase_num         char(10) comment 'é»˜è®¤é”€å”®æ•°',
+   store_id             int comment 'ç»é”€å•†é—¨åº—id',
    age_tag              smallint,
    start_time           timestamp,
    end_time             timestamp,
    spu_desc_id          int,
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
    primary key (spu_id)
 );
 
-alter table t_spu comment 'ÉÌÆ·£¨²Ë£©';
+alter table t_spu comment 'å•†å“ï¼ˆèœï¼‰';
 
 /*==============================================================*/
 /* Table: t_spu_attr_mapping                                    */
@@ -196,7 +196,7 @@ create table t_spu_attr_mapping
    primary key (mapping_id)
 );
 
-alter table t_spu_attr_mapping comment 'ÉÌÆ·ÊôĞÔ¹ØÁª±í(ĞÂ½¨³µÏí°üÊ±Î¬»¤)';
+alter table t_spu_attr_mapping comment 'å•†å“å±æ€§å…³è”è¡¨(æ–°å»º èœ æ—¶ç»´æŠ¤)';
 
 /*==============================================================*/
 /* Table: t_spu_collect                                         */
@@ -207,11 +207,11 @@ create table t_spu_collect
    user_id              int not null,
    spu_id               int not null,
    create_time          timestamp,
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
    primary key (collect_id)
 );
 
-alter table t_spu_collect comment 'ÎÒµÄÊÕ²Ø';
+alter table t_spu_collect comment 'æˆ‘çš„æ”¶è—';
 
 /*==============================================================*/
 /* Table: t_spu_extend                                          */
@@ -228,7 +228,7 @@ create table t_spu_extend
    create_time          timestamp,
    update_time          timestamp,
    approve_time         timestamp,
-   last_approval_comment varchar(500) comment '×îºóÉóºËÒâ¼û',
+   last_approval_comment varchar(500) comment 'æœ€åå®¡æ ¸æ„è§',
    canceller_name       varchar(50),
    canceller_id         int,
    cancel_reason        varchar(500),
@@ -239,7 +239,7 @@ create table t_spu_extend
    primary key (spu_id)
 );
 
-alter table t_spu_extend comment 'spuÍØÕ¹±í';
+alter table t_spu_extend comment 'spuæ‹“å±•è¡¨';
 
 /*==============================================================*/
 /* Table: t_spu_store                                           */
@@ -248,12 +248,12 @@ create table t_spu_store
 (
    spu_store_id         int not null,
    spu_id               int,
-   province_id          int comment 'Ê¡ID',
-   city_id              int comment '³ÇÊĞID',
-   district_id          int comment 'ÇøID',
-   store_id             int comment 'µêÆÌID',
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
-   accept_status        smallint comment '1.Î´³Ğ½Ó 2.ÒÑ³Ğ½Ó',
+   province_id          int comment 'çœID',
+   city_id              int comment 'åŸå¸‚ID',
+   district_id          int comment 'åŒºID',
+   store_id             int comment 'åº—é“ºID',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
+   accept_status        smallint comment '1.æœªæ‰¿æ¥ 2.å·²æ‰¿æ¥',
    primary key (spu_store_id)
 );
 
@@ -272,12 +272,12 @@ create table t_stock
    locked_num           int,
    used_num             int,
    available_num        int,
-   row_status           smallint comment 'Êı¾İ×´Ì¬(1 ÓĞĞ§; 2 ÒÑÉ¾³ı)',
-   create_time          timestamp comment '´´½¨Ê±¼ä',
+   row_status           smallint comment 'æ•°æ®çŠ¶æ€(1 æœ‰æ•ˆ; 2 å·²åˆ é™¤)',
+   create_time          timestamp comment 'åˆ›å»ºæ—¶é—´',
    primary key (stock_id)
 );
 
-alter table t_stock comment '¿â´æ×Ü±í';
+alter table t_stock comment 'åº“å­˜æ€»è¡¨';
 
 alter table t_attr_value add constraint FK_Reference_5 foreign key (attr_id)
       references t_attribute (attr_id) on delete restrict on update restrict;
@@ -305,4 +305,3 @@ alter table t_spu_attr_mapping add constraint FK_Reference_19 foreign key (attr_
 
 alter table t_spu_store add constraint FK_Reference_20 foreign key (spu_id)
       references t_spu (spu_id) on delete restrict on update restrict;
-
