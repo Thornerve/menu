@@ -204,12 +204,11 @@
 				</configuration>
 			</plugin>
 
-			<!-- YUI Compressor Maven压缩插件, mvn yuicompressor:compress -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<finalName>${warName}-${project.version}</finalName>
-					<descriptors>
+					<descriptors><!--描述文件路径-->
 						<!-- 生产环境打包 -->
 						<descriptor>src/assembly/web-distribution.xml</descriptor>
 						<descriptor>src/assembly/web-resources-distribution.xml</descriptor>
@@ -218,14 +217,14 @@
 				<executions>
 					<execution>
 						<id>make-assembly</id>
-						<phase>package</phase>
+						<phase>package</phase><!-- 绑定到package生命周期阶段上 -->
 						<goals>
-							<goal>single</goal>
+							<goal>single</goal><!-- 只运行一次 -->
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
-
+			<!-- YUI Compressor Maven压缩插件, mvn yuicompressor:compress -->
 			<plugin>
 				<groupId>net.alchim31.maven</groupId>
 				<artifactId>yuicompressor-maven-plugin</artifactId>
