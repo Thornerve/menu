@@ -3,4 +3,5 @@
    <groupId>com.morlin.thor.common.parent</groupId>
    <artifactId>thor-common-parent</artifactId>
    <version>0.0.1-SNAPSHOT</version>
+   <packaging>pom</packaging>
 </project>
