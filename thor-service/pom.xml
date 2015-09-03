@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
+  
    
    <parent>
    		<artifactId>thor-common-parent</artifactId>
@@ -8,14 +9,15 @@
    		<version>0.0.1-SNAPSHOT</version>
    </parent>
    
-   <groupId>com.morlin.thor.csc</groupId>
-   <artifactId>thor-csc</artifactId>
+   <groupId>com.morlin.thor.service</groupId>
+   <artifactId>thor-service</artifactId>
    <version>0.0.2-SNAPSHOT</version>
    
    <properties>
-		<warName>thor-csc</warName>
+		<jarName>thor-menu</jarName>
 	</properties>
-	
+   
+  	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -154,42 +156,14 @@
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 		</dependency>
-		<!-- freeamrker -->
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-		</dependency>
 	</dependencies>
 	
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<warName>${warName}</warName>
-					<webResources>
-						<resource>
-							<filtering>true</filtering>
-							<directory>src/main/webapp</directory>
-							<includes>
-								<include>**/web.xml</include>
-							</includes>
-						</resource>
-					</webResources>
-					<!-- <packagingExcludes>resources/**</packagingExcludes> -->
-				</configuration>
-			</plugin>
-
-			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
-					<finalName>${warName}-${project.version}</finalName>
-					<descriptors><!--描述文件路径-->
-						<!-- 生产环境打包 -->
-						<descriptor>src/assembly/web-distribution.xml</descriptor>
-						<descriptor>src/assembly/web-resources-distribution.xml</descriptor>
-					</descriptors>
+					<finalName>${jarName}-${project.version}</finalName>
 				</configuration>
 				<executions>
 					<execution>
@@ -200,64 +174,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<!-- YUI Compressor Maven压缩插件, mvn yuicompressor:compress -->
-			<plugin>
-				<groupId>net.alchim31.maven</groupId>
-				<artifactId>yuicompressor-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compress</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<!-- 读取js,css文件采用UTF-8编码 -->
-					<encoding>UTF-8</encoding>
-					<!-- 不显示js可能的错 -->
-					<jswarn>false</jswarn>
-					<!-- 若存在已压缩的文件，会先对比源文件是否有改动 有改动便压缩，无改动就不压缩 -->
-					<force>false</force>
-					<!-- 在指定的列号后插入新错误 -->
-					<linebreakpos>-1</linebreakpos>
-					<!-- 压缩之前先执行聚合文件操 -->
-					<preProcessAggregates>true</preProcessAggregates>
-					<!-- 压缩后保存文件后缀 -->
-					<suffix>.min</suffix>
-					<!-- 源目录，即需压缩的根目录 -->
-					<sourceDirectory>${basedir}/src/main/webapp/resource</sourceDirectory>
-					<!-- 压缩js和css文件 -->
-					<includes>
-						<include>**/js/**/*.js</include>
-						<include>**/css/**/*.css</include>
-						<include>**/jslib/**/*.js</include>
-						<include>**/jslib/**/*.css</include>
-					</includes>
-					<!-- 以下目录和文件不会被压缩 -->
-					<excludes>
-						<exclude>**/*min.js</exclude>
-						<exclude>**/*min.css</exclude>
-					</excludes>
-					<!-- 测试编码格式 -->
-					<!-- 压缩后输出文件目 -->
-					<outputDirectory>${basedir}/src/main/webapp/resource</outputDirectory>
-					<!-- 聚合文件 -->
-					<aggregations>
-						<aggregation>
-							<!-- 合并每一个文件后插入一新行 -->
-							<insertNewLine>true</insertNewLine>
-							<!-- 需合并文件的根文件路径 -->
-							<inputDir>${basedir}/src/main/webapp/resource/js</inputDir>
-							<!-- 最终合并的输出文件 -->
-							<output>${basedir}/src/main/webapp/resource/js/h.js</output>
-							<!-- 把以下js文件合并成一个js文件，是按顺序合并的 -->
-							<includes>
-								<!-- <include>**/*.js</include> -->
-							</includes>
-						</aggregation>
-					</aggregations>
-				</configuration>
 			</plugin>
 
 			<plugin>
